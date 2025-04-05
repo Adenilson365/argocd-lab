@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application 
+metadata:
+  name: api-dev
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/Adenilson365/praticando-argocd.git'
+    targetRevision: HEAD
+    path: application 
+    directory:
+      recurse: true
+  destination:
+    server: 'https://34.135.90.35'
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
