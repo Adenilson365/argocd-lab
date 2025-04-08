@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application 
 metadata:
-  name: api-dev
+  name: api-catalogo
   namespace: argocd
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/Adenilson365/praticando-argocd.git'
+    repoURL: 'https://github.com/Adenilson365/devopslabs01-ops-catalogo.git'
     targetRevision: HEAD
     path: application 
     directory:

@@ -37,5 +37,5 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 
 argocd login localhost:32501 --username admin --password $(cat argo-pass.pass) --insecure --grpc-web
 
- argocd cluster add gke_argo-dev-455710_us-central1_argo-dev-0 -y
+argocd cluster add gke_argo-dev-455710_us-central1_argo-dev-0 -y
 # argocd cluster add gke_argo-prd_us-east1_argo-prd-0
