@@ -1,18 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application 
 metadata:
-  name: api-images
+  name: api-argo-mgmt
   namespace: argocd
 spec:
-  project: default
+  project: dev
   source:
-    repoURL: 'https://github.com/Adenilson365/devopslabs01-ops-api-images.git'
+    repoURL: 'https://github.com/Adenilson365/argocd-lab.git'
     targetRevision: HEAD
-    path: application 
+    path: k8s-shared/dev
     directory:
       recurse: true
   destination:
-    server: 'https://35.238.176.235'
+    server: 'https://kubernetes.default.svc'
+    namespace: argocd
   syncPolicy:
     automated:
       prune: true

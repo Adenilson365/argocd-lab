@@ -39,3 +39,27 @@ argocd login localhost:32501 --username admin --password $(cat argo-pass.pass) -
 
 argocd cluster add gke_argo-dev-455710_us-central1_argo-dev-0 -y
 # argocd cluster add gke_argo-prd_us-east1_argo-prd-0
+
+
+
+.
+├── argocd-mgmt
+│   ├── argocd-values
+│   │   ├── argocd-values-ha.yaml
+│   │   └── argocd-without-ha.yaml
+│   ├── argocd-install.sh
+│   ├── app-of-apps
+│   │   ├── k8s-shared-manifests.yaml
+│   │   ├── k8s-application.yaml
+│   │   └── k8s-infra.yaml
+|    
+├── k8s-application
+│   ├── dev
+│   └── prod
+├── k8s-infra
+│   ├── dev
+│   └── prod
+├── k8s-shared-manifests
+│   ├── dev
+│   └── prod
+└── README.md
