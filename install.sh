@@ -30,7 +30,7 @@ kubectl config use-context gke_argo-mgmt_us-west1_argo-mgmt-0
 
 helm repo add argo https://argoproj.github.io/argo-helm
 helm repo update
-helm install argocd argo/argo-cd --version 7.8.7 -n argocd --create-namespace --values ./mgmt/argocd-values/argocd-without-ha.yaml --wait
+helm install argocd argo/argo-cd --version 7.8.7 -n argocd --create-namespace --values ./argocd-mgmt/argocd-values/argocd-without-ha.yaml --wait
 
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d > argo-pass.pass
 
@@ -42,24 +42,24 @@ argocd cluster add gke_argo-dev-455710_us-central1_argo-dev-0 -y
 
 
 
-.
-├── argocd-mgmt
-│   ├── argocd-values
-│   │   ├── argocd-values-ha.yaml
-│   │   └── argocd-without-ha.yaml
-│   ├── argocd-install.sh
-│   ├── app-of-apps
-│   │   ├── k8s-shared-manifests.yaml
-│   │   ├── k8s-application.yaml
-│   │   └── k8s-infra.yaml
-|    
-├── k8s-application
-│   ├── dev
-│   └── prod
-├── k8s-infra
-│   ├── dev
-│   └── prod
-├── k8s-shared-manifests
-│   ├── dev
-│   └── prod
-└── README.md
+# .
+# ├── argocd-mgmt
+# │   ├── argocd-values
+# │   │   ├── argocd-values-ha.yaml
+# │   │   └── argocd-without-ha.yaml
+# │   ├── argocd-install.sh
+# │   ├── app-of-apps
+# │   │   ├── k8s-shared-manifests.yaml
+# │   │   ├── k8s-application.yaml
+# │   │   └── k8s-infra.yaml
+# |    
+# ├── k8s-application
+# │   ├── dev
+# │   └── prod
+# ├── k8s-infra
+# │   ├── dev
+# │   └── prod
+# ├── k8s-shared-manifests
+# │   ├── dev
+# │   └── prod
+# └── README.md

@@ -3,6 +3,8 @@ kind: AppProject
 metadata:
   name: dev
   namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   description: Projeto de desenvolvimento
   sourceRepos:
@@ -12,6 +14,9 @@ spec:
     - https://charts.jetstack.io
     - https://kubernetes.github.io/ingress-nginx
     - https://github.com/Adenilson365/devops-labs01-config.git
+    - https://github.com/Adenilson365/argocd-lab.git
   destinations:
     - server: https://35.238.176.235
       namespace: '*'
+    - server: https://kubernetes.default.svc
+      namespace: 'argocd'

@@ -3,12 +3,14 @@ kind: Application
 metadata:
   name: api-argo-mgmt
   namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   project: dev
   source:
     repoURL: 'https://github.com/Adenilson365/argocd-lab.git'
     targetRevision: HEAD
-    path: k8s-shared/dev
+    path: k8s-application/dev
     directory:
       recurse: true
   destination:
