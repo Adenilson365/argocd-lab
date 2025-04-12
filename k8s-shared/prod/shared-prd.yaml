@@ -10,11 +10,11 @@ spec:
   source:
     repoURL: 'https://github.com/Adenilson365/devops-labs01-config.git'
     targetRevision: HEAD
-    path: dev
+    path: prod
     directory:
       recurse: true
   destination:
-    server: 'https://34.72.127.117'
+    server: 'https://35.229.67.82'
   syncPolicy:
     automated:
       prune: true

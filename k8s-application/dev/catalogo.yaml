@@ -9,12 +9,12 @@ spec:
   project: dev
   source:
     repoURL: 'https://github.com/Adenilson365/devopslabs01-ops-catalogo.git'
-    targetRevision: HEAD
+    targetRevision: dev
     path: application 
     directory:
       recurse: true
   destination:
-    server: 'https://35.238.203.103'
+    server: 'https://34.72.127.117'
   syncPolicy:
     automated:
       prune: true

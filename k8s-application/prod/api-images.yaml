@@ -1,18 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application 
 metadata:
-  name: api-prd
+  name: api-images
   namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
-  project: default
+  project: prod
   source:
-    repoURL: 'https://github.com/Adenilson365/praticando-argocd.git'
-    targetRevision: HEAD
+    repoURL: 'https://github.com/Adenilson365/devopslabs01-ops-api-images.git'
+    targetRevision: main
     path: application 
     directory:
       recurse: true
   destination:
-    server: 'https://34.148.213.113'
+    server: 'https://35.229.67.82'
   syncPolicy:
     automated:
       prune: true

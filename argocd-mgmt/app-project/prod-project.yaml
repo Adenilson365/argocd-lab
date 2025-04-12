@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: prod
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  description: Projeto de desenvolvimento
+  sourceRepos:
+    - https://github.com/Adenilson365/devopslabs01-ops-api-images.git
+    - https://github.com/Adenilson365/devopslabs01-ops-catalogo.git
+    - https://github.com/Adenilson365/devopslabas01-ops-frontend.git
+    - https://charts.jetstack.io
+    - https://kubernetes.github.io/ingress-nginx
+    - https://github.com/Adenilson365/devops-labs01-config.git
+    - https://github.com/Adenilson365/argocd-lab.git
+  destinations:
+    - server: https://35.229.67.82
+      namespace: '*'
+    - server: https://kubernetes.default.svc
+      namespace: 'argocd'
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
