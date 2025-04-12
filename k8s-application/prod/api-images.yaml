@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application 
 metadata:
-  name: api-images
+  name: api-images-prd
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
