@@ -6,7 +6,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: dev
+  project: prod
   source:
     repoURL: 'https://github.com/Adenilson365/devops-labs01-config.git'
     targetRevision: HEAD
