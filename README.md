@@ -98,3 +98,11 @@ load balancing provisionados.
 - [ArgoCD](https://argo-cd.readthedocs.io/en/stable/getting_started/)
 - [Let's Encrypt](https://letsencrypt.org/pt-br/docs/)
 - [GKE](https://cloud.google.com/kubernetes-engine/docs?hl=pt-br)
+
+
+## 🔥 Em Evolução
+
+- ✅ Configuração de Sync Waves e Alerts por aplicação e stack.
+- ✅ Implementação de IngressController para expor ArgoCD via HTTPS.
+- ✅ Definição de RBAC com perfis de acesso em ArgoCD (ex: Admin, Dev, Read-Only).
+- 🚧 Integração com Keycloak para autenticação SSO (em estudo).
