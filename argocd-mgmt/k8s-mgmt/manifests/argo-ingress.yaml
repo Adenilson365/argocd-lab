@@ -22,7 +22,7 @@ spec:
           pathType: Prefix
           backend:
             service:
-              name: frontend
+              name: argocd-server
               port:
                 number: 443
 
