@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: 'https://github.com/Adenilson365/argocd-lab.git'
     targetRevision: HEAD
-    path: argo-mgmt/k8s-mgmt/infra
+    path: argocd-mgmt/k8s-mgmt/infra
     directory:
       recurse: true
   destination:
