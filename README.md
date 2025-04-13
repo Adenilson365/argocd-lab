@@ -8,7 +8,7 @@
 - Clusters separados para cada ambiente (prod e não-prod) e cluster de gerenciamento.
 - Todos os recursos gerenciados pelo argoCD e versionados via git, onde fizer sentido.
 
-_Esse projeto não aborda parde de CI, cada repositório de aplicação cobre essa etapa por si só._
+_Esse projeto não aborda parte de CI, cada repositório de aplicação cobre essa etapa por si só._
 
 ## Diagramas
 
@@ -65,3 +65,36 @@ _Esse projeto não aborda parde de CI, cada repositório de aplicação cobre es
 
 
 
+## Como reproduzir:
+
+### Infraestrutura:
+- Requisitos: 3 cluster Kubernetes, você pode criar os clusters na mão, ou aplicar 1 dos meus labs de terraform:
+- [Usando GKE na GCP](https://github.com/Adenilson365/devopslabs01-iac)
+- [Usando EKS na AWS](https://github.com/Adenilson365/tf-labs01-aws-k8s)
+- Se optar por rodar GKE - o script install.sh contém os comandos para atualizar o kubeconfig e instalar o argo.
+🚨 **OPERAR EM NUVÉM GERA CUSTOS, SEJA CUIDADOSO**
+
+### DNS - Utilizo o cloud DNS do GCP
+- Para esse laboratório utilizo domínio próprio, e uso o cloud dns do GCP para criar os subdomínios para cada itém.
+- Após aplicar todos os manifestos, é necessário atualizar os registros A da sua zona DNS para apontar para os IPs dos
+load balancing provisionados.
+- Para usar em conjunto com Let's Encrypt, veja como configurar na documentação de referência.
+    - Nesse Lab você pode ter um exemplo de configuração [link](https://github.com/Adenilson365/devopslabs01-catalogo/blob/main/README.md)
+
+### Aplicação
+- Cada repositório tem suas dependências e configurações específicas que precisam ser aplicadas.
+
+### Implantar
+- Após satisfazer os requisitos anteriores, basta aplicar o deploy na ordem:
+- app project
+- app of apps
+    - infra.yaml
+    - shared.yaml
+    - Manisfestos sensíveis não versionados (caso necessário).
+    - application.yaml
+
+### Documentação de referência:
+
+- [ArgoCD](https://argo-cd.readthedocs.io/en/stable/getting_started/)
+- [Let's Encrypt](https://letsencrypt.org/pt-br/docs/)
+- [GKE](https://cloud.google.com/kubernetes-engine/docs?hl=pt-br)
