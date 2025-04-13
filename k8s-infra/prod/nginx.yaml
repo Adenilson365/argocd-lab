@@ -14,7 +14,7 @@ spec:
     helm:
       releaseName: ingress-nginx
   destination:
-    server: 'https://35.229.67.82'
+    server: 'https://35.196.226.32'
     namespace: ingress-nginx
   syncPolicy:
     automated:

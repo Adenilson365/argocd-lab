@@ -16,7 +16,7 @@ spec:
     - https://github.com/Adenilson365/devops-labs01-config.git
     - https://github.com/Adenilson365/argocd-lab.git
   destinations:
-    - server: https://35.229.67.82
+    - server: https://35.196.226.32
       namespace: '*'
     - server: https://kubernetes.default.svc
       namespace: 'argocd'
