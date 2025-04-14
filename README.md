@@ -106,3 +106,12 @@ load balancing provisionados.
 - ✅ Implementação de IngressController para expor ArgoCD via HTTPS.
 - ✅ Definição de RBAC com perfis de acesso em ArgoCD (ex: Admin, Dev, Read-Only).
 - 🚧 Integração com Keycloak para autenticação SSO (em estudo).
+
+
+### Ingress-Controller com Nginx e Let's Encrypt
+- O ArgoCD-server serve dois protolocos na mesma porta HTTPS e GRPC.
+    - HTTPS para console WEB
+    - GRPC para argocd-cli
+- O nginx pode atender apenas um protocolo por vez, para isso é necessário 2 ingress ou 1 ingress mas o nginx perde algumas funcionalidades.
+
+[Documentação de referência](https://argo-cd.readthedocs.io/en/stable/operator-manual/ingress/)

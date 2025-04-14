@@ -4,16 +4,15 @@ metadata:
   name: argocd-ingress
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
-    nginx.ingress.kubernetes.io/service-upstream: "true"
-   # networking.gke.io/managed-certificates: auto-cert2
-  namespace: argocd
-    
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+  namespace: argocd 
 spec:
   ingressClassName: nginx
   tls:
    - hosts:
        - argo.konzelmann.com.br
-     secretName: letsencrypt-prod
+     secretName: argocd-server-tls
   rules:
   - host: argo.konzelmann.com.br
     http:
@@ -24,6 +23,6 @@ spec:
             service:
               name: argocd-server
               port:
-                number: 443
+                name: https
 
 

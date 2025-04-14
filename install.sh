@@ -2,12 +2,12 @@
 
 
 
-gcloud container clusters get-credentials argo-prd-0 \
-    --region=us-east1 --project=argo-prd
+# gcloud container clusters get-credentials argo-prd-0 \
+#     --region=us-east1 --project=argo-prd
 
-kubectl create clusterrolebinding cluster-admin-binding \
-  --clusterrole cluster-admin \
-  --user $(gcloud config get-value account)
+# kubectl create clusterrolebinding cluster-admin-binding \
+#   --clusterrole cluster-admin \
+#   --user $(gcloud config get-value account)
 
 gcloud container clusters get-credentials argo-dev-0 \
     --region=us-central1 --project=argo-dev-455710
@@ -32,13 +32,13 @@ helm repo add argo https://argoproj.github.io/argo-helm
 helm repo update
 helm install argocd argo/argo-cd --version 7.8.7 -n argocd --create-namespace --values ./argocd-mgmt/argocd-values/argocd-without-ha.yaml --wait
 
-kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d > argo-pass.pass
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d > argo-pass.pass.argo
 
 
-argocd login localhost:32501 --username admin --password $(cat argo-pass.pass) --insecure --grpc-web
+argocd login localhost:32501 --username admin --password $(cat argo-pass.pass.argo) --insecure --grpc-web
 
 argocd cluster add gke_argo-dev-455710_us-central1_argo-dev-0 -y
-argocd cluster add gke_argo-prd_us-east1_argo-prd-0 -y
+# argocd cluster add gke_argo-prd_us-east1_argo-prd-0 -y
 
 
 # .

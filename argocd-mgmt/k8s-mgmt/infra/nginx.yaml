@@ -13,6 +13,9 @@ spec:
     targetRevision: 4.12.1
     helm:
       releaseName: ingress-nginx
+      parameters:
+        - name: controller.extraArgs.enable-ssl-passthrough
+          value: ""
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: ingress-nginx
