@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
-metadata: 
+metadata:
   name: cert-manager
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: dev
-  source: 
-    repoURL: 'https://charts.jetstack.io'
+  source:
+    repoURL: "https://charts.jetstack.io"
     chart: cert-manager
     targetRevision: 1.17.0
     helm:
@@ -18,7 +18,7 @@ spec:
           value: "true"
 
   destination:
-    server: 'https://34.171.150.146'
+    server: "https://34.31.234.5"
     namespace: cert-manager
   syncPolicy:
     automated:
@@ -26,5 +26,4 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
-
 #DOC: https://cert-manager.io/docs/installation/helm/

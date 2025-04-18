@@ -1,5 +1,5 @@
 apiVersion: argoproj.io/v1alpha1
-kind: Application 
+kind: Application
 metadata:
   name: api-images
   namespace: argocd
@@ -8,13 +8,13 @@ metadata:
 spec:
   project: dev
   source:
-    repoURL: 'https://github.com/Adenilson365/devopslabs01-ops-api-images.git'
+    repoURL: "https://github.com/Adenilson365/devopslabs01-ops-api-images.git"
     targetRevision: dev
-    path: application 
+    path: application
     directory:
       recurse: true
   destination:
-    server: 'https://34.171.150.146'
+    server: "https://34.31.234.5"
   syncPolicy:
     automated:
       prune: true

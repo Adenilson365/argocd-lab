@@ -1,5 +1,5 @@
 apiVersion: argoproj.io/v1alpha1
-kind: Application 
+kind: Application
 metadata:
   name: api-argo-mgmt-shared
   namespace: argocd
@@ -8,13 +8,13 @@ metadata:
 spec:
   project: dev
   source:
-    repoURL: 'https://github.com/Adenilson365/argocd-lab.git'
+    repoURL: "https://github.com/Adenilson365/argocd-lab.git"
     targetRevision: HEAD
     path: k8s-shared/dev
     directory:
       recurse: true
   destination:
-    server: 'https://kubernetes.default.svc'
+    server: "https://kubernetes.default.svc"
     namespace: argocd
   syncPolicy:
     automated:
