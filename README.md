@@ -1,6 +1,10 @@
-# Objetivo
+# GitOps com ArgoCD
+
+## Objetivo
 
 Um laboratório de integração contínua e entrega contínua (CI/CD) baseado em GitOps utilizando ArgoCD, com o padrão "App of Apps", em uma arquitetura multi-cluster para simular cenários de desenvolvimento, produção e gestão de recursos Kubernetes/applicação.
+
+### Requisitos
 
 - Utilizar **ArgoCD** para deploy e sincronização.
 - Git como **fonte de verdade**
