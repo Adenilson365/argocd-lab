@@ -31,9 +31,10 @@ _Esse projeto não aborda parte de CI, cada repositório de aplicação cobre es
 
 ### Fluxo de deploy
 
-![Fluxo de deploy](./assets/fluxo-deploy-argo.png)
+![Fluxo de deploy](./assets/agocd-deploy-sync.png)
 
 - Esse projeto não se propõe a abordar pipelines de CI, ou seja, testes, build, gitflow, etc, isso está coberto pelos repositórios das aplicações.
+- Durante as fases de SYNC são enviados alertas de status para canal Telegram.
 - IAC também está coberto pelo repositório de IAC
 
 ## Ordem de Deploy
@@ -115,8 +116,6 @@ _Esse projeto não aborda parte de CI, cada repositório de aplicação cobre es
 
 ## 🔥 Em Evolução
 
-- ✅ Configuração de Sync Waves e Alerts por aplicação e stack.
-- ✅ Implementação de IngressController para expor ArgoCD via HTTPS. (feito)
 - ✅ Definição de RBAC com perfis de acesso em ArgoCD (ex: Admin, Dev, Read-Only).
 - 🚧 Integração com Keycloak para autenticação SSO (em estudo).
 
@@ -168,3 +167,5 @@ https://api.telegram.org/bot<Idbot>/getUpdates
               -d chat_id=${TELEGRAM_CHAT_ID} \
               -d text="Sua Mensagem"
 ```
+
+![Telegram-msg](./assets/telegram.png)

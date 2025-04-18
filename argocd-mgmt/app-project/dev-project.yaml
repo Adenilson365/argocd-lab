@@ -3,8 +3,6 @@ kind: AppProject
 metadata:
   name: dev
   namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
 spec:
   description: Projeto de desenvolvimento
   sourceRepos:
