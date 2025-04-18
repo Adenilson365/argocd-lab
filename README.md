@@ -29,13 +29,17 @@ _Esse projeto não aborda parte de CI, cada repositório de aplicação cobre es
   - app-of-apps infra: Gerência recursos e CRD's de administração ou que as aplicações dependem como: cert-manager, CRD ingress, Stack de observabilidade, etc.
   - A idéia é que tudo o possível seja gerenciado pelo argo e versionado, exceto dados sensíveis como os secrets, configmaps, etc.
 
-### Fluxo de deploy
+### Fluxo de deploy - Visão OPS
 
-![Fluxo de deploy](./assets/agocd-deploy-sync.png)
+![Fluxo de deploy](./assets/fluxo-deploy.png)
 
 - Esse projeto não se propõe a abordar pipelines de CI, ou seja, testes, build, gitflow, etc, isso está coberto pelos repositórios das aplicações.
 - Durante as fases de SYNC são enviados alertas de status para canal Telegram.
 - IAC também está coberto pelo repositório de IAC
+
+### Fluxo de CICD - Visão Gitflow
+
+![Fluxo CICD](./assets/flow-cicd.png)
 
 ## Ordem de Deploy
 
@@ -114,11 +118,6 @@ _Esse projeto não aborda parte de CI, cada repositório de aplicação cobre es
 - [GKE](https://cloud.google.com/kubernetes-engine/docs?hl=pt-br)
 - [Argocd Hooks](https://argo-cd.readthedocs.io/en/stable/user-guide/resource_hooks/)
 
-## 🔥 Em Evolução
-
-- ✅ Definição de RBAC com perfis de acesso em ArgoCD (ex: Admin, Dev, Read-Only).
-- 🚧 Integração com Keycloak para autenticação SSO (em estudo).
-
 ### Ingress-Controller com Nginx e Let's Encrypt
 
 - O ArgoCD-server serve dois protolocos na mesma porta HTTPS e GRPC.
@@ -150,7 +149,7 @@ _Esse projeto não aborda parte de CI, cada repositório de aplicação cobre es
 `
   [Documentação de referência](https://argo-cd.readthedocs.io/en/stable/operator-manual/ingress/)
 
-### Telegram
+### Alertas para o Telegram
 
 - Crie seu chat com bot_father [Veja esse guia](https://apidog.com/pt/blog/beginners-guide-to-telegram-bot-api/?utm_source=google_dsa&utm_medium=g&utm_campaign=22400621269&utm_content=174661787022&utm_term=&gad_source=1&gad_campaignid=22400621269&gbraid=0AAAAA-gKXrBQfRh0AtC-0xXtRSJs0cCAn&gclid=CjwKCAjw8IfABhBXEiwAxRHlsD8ZKEzv2dZgsva5HLKUXqsVbUv5nLSUjvMFIxYQjY4oxbKcMO5YKBoCI1YQAvD_BwE)
 - Pegue o token do seu bot
@@ -168,4 +167,32 @@ https://api.telegram.org/bot<Idbot>/getUpdates
               -d text="Sua Mensagem"
 ```
 
+- Alertas de Sync Recebidos
+
 ![Telegram-msg](./assets/telegram.png)
+
+## 🔥 Próximos passos planejados:
+
+- 🚧 Integração com Keycloak para autenticação SSO (em estudo).
+- 🚧 Adição de argo-rollouts para estratégias avançadas de deploy.
+
+## 📚 Conceitos Aplicados no Projeto
+
+## 📚 Conceitos Aplicados no Projeto
+
+| Conceito                             | Descrição                                                                                                                           |
+| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
+| **GitOps**                           | Git como fonte de verdade; mudanças versionadas disparam deploys automáticos no ambiente.                                           |
+| **Gitflow**                          | Estrutura de branches para controlar o ciclo de vida do código, evitando alterações diretas na branch principal.                    |
+| **App of Apps**                      | Application raiz do ArgoCD que gerencia múltiplas applications filhas, cada uma responsável por um serviço ou conjunto de recursos. |
+| **ArgoCD**                           | Ferramenta de Continuous Delivery que sincroniza o estado do cluster com os manifestos versionados no Git.                          |
+| **Multi-cluster**                    | Arquitetura que utiliza múltiplos clusters Kubernetes, separados por função (gerenciamento, produção, desenvolvimento).             |
+| **Helm via ArgoCD**                  | Utilização de Helm Charts gerenciados por ArgoCD para parametrizar e versionar aplicações de forma reutilizável.                    |
+| **Infraestrutura como Código (IaC)** | Provisionamento de recursos de nuvem e clusters Kubernetes usando Terraform.                                                        |
+| **DNS com Cloud DNS (GCP)**          | Gerenciamento de subdomínios e registros DNS diretamente via Cloud DNS para expor serviços nos clusters.                            |
+| **Let's Encrypt + TLS**              | Emissão automática de certificados SSL via cert-manager, com uso de NGINX e SSL passthrough para suportar HTTPS e GRPC.             |
+| **Notificações no Telegram**         | Integração com a API do Telegram para envio de mensagens de status do deploy durante o processo de sincronização.                   |
+| **Gerenciamento de Secrets**         | Dados sensíveis, como senhas e tokens, não são versionados com os manifestos e devem ser tratados separadamente.                    |
+| **Separação de ambientes**           | Ambientes isolados por cluster ou namespace, com manifestos e pipelines independentes para cada estágio.                            |
+| **Ordem de Deploy**                  | Estratégia em camadas: infraestrutura → recursos compartilhados → aplicações, respeitando dependências.                             |
+| **SSO com Keycloak**                 | Planejamento de autenticação centralizada utilizando Keycloak como Identity Provider (em estudo).                                   |
