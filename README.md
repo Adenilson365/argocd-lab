@@ -11,6 +11,7 @@ Um laboratório de integração contínua e entrega contínua (CI/CD) baseado em
 - Organizar os manifestos usando o **padrão App-of-Apps**
 - Clusters separados para cada ambiente (prod e não-prod) e cluster de gerenciamento.
 - Todos os recursos gerenciados pelo argoCD e versionados via git, onde fizer sentido.
+- Alertas de deploy (Sync-Waves)
 
 _Esse projeto não aborda parte de CI, cada repositório de aplicação cobre essa etapa por si só._
 
@@ -155,6 +156,8 @@ _Esse projeto não aborda parte de CI, cada repositório de aplicação cobre es
 
 ### Alertas para o Telegram
 
+- [Documentação de referência](https://argo-cd.readthedocs.io/en/stable/user-guide/sync-waves/)
+
 - Crie seu chat com bot_father [Veja esse guia](https://apidog.com/pt/blog/beginners-guide-to-telegram-bot-api/?utm_source=google_dsa&utm_medium=g&utm_campaign=22400621269&utm_content=174661787022&utm_term=&gad_source=1&gad_campaignid=22400621269&gbraid=0AAAAA-gKXrBQfRh0AtC-0xXtRSJs0cCAn&gclid=CjwKCAjw8IfABhBXEiwAxRHlsD8ZKEzv2dZgsva5HLKUXqsVbUv5nLSUjvMFIxYQjY4oxbKcMO5YKBoCI1YQAvD_BwE)
 - Pegue o token do seu bot
 - Pegue o id do seu chat:
@@ -179,8 +182,6 @@ https://api.telegram.org/bot<Idbot>/getUpdates
 
 - 🚧 Integração com Keycloak para autenticação SSO (em estudo).
 - 🚧 Adição de argo-rollouts para estratégias avançadas de deploy.
-
-## 📚 Conceitos Aplicados no Projeto
 
 ## 📚 Conceitos Aplicados no Projeto
 
