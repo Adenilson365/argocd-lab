@@ -2,12 +2,12 @@
 
 
 
-gcloud container clusters get-credentials argo-prd-0 \
-    --region=us-east1 --project=argo-prd
+# gcloud container clusters get-credentials argo-prd-0 \
+#     --region=us-east1 --project=argo-prd
 
-kubectl create clusterrolebinding cluster-admin-binding \
-  --clusterrole cluster-admin \
-  --user $(gcloud config get-value account)
+# kubectl create clusterrolebinding cluster-admin-binding \
+#   --clusterrole cluster-admin \
+#   --user $(gcloud config get-value account)
 
 gcloud container clusters get-credentials argo-dev-0 \
     --region=us-central1 --project=argo-dev-455710
@@ -16,15 +16,15 @@ kubectl create clusterrolebinding cluster-admin-binding \
   --clusterrole cluster-admin \
   --user $(gcloud config get-value account)
 
-# gcloud container clusters get-credentials argo-mgmt-0 \
-#     --region=us-west1 --project=argo-mgmt
+gcloud container clusters get-credentials argo-mgmt-0 \
+    --region=us-west1 --project=argo-mgmt
 
-# kubectl create clusterrolebinding cluster-admin-binding \
-#   --clusterrole cluster-admin \
-#   --user $(gcloud config get-value account)
+kubectl create clusterrolebinding cluster-admin-binding \
+  --clusterrole cluster-admin \
+  --user $(gcloud config get-value account)
 
 #Setar o cluster de gerenciamento como o cluster padrão
-kubectl config use-context gke_argo-prd_us-east1_argo-prd-0
+kubectl config use-context gke_argo-prd_us-east1_argo-mgmt-0
 
 # Install ArgoCD
 

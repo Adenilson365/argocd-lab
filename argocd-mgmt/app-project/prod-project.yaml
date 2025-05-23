@@ -13,6 +13,7 @@ spec:
     - https://kubernetes.github.io/ingress-nginx
     - https://github.com/Adenilson365/devops-labs01-config.git
     - https://github.com/Adenilson365/argocd-lab.git
+    - https://charts.external-secrets.io
   destinations:
     - server: https://35.196.226.32
       namespace: "*"
