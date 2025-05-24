@@ -18,7 +18,7 @@ spec:
           value: "true"
 
   destination:
-    server: "https://35.202.159.123"
+    server: "https://34.66.227.218"
     namespace: cert-manager
   syncPolicy:
     automated:

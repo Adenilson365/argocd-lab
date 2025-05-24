@@ -24,7 +24,7 @@ kubectl create clusterrolebinding cluster-admin-binding \
   --user $(gcloud config get-value account)
 
 #Setar o cluster de gerenciamento como o cluster padrão
-kubectl config use-context gke_argo-prd_us-east1_argo-mgmt-0
+#kubectl config use-context gke_argo-mgmt_us-west1_argo-mgmt-0
 
 # Install ArgoCD
 
