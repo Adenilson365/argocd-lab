@@ -15,7 +15,7 @@ spec:
     - https://github.com/Adenilson365/argocd-lab.git
     - https://charts.external-secrets.io
   destinations:
-    - server: https://34.56.122.124
+    - server: https://34.170.226.110
       namespace: "*"
     - server: https://kubernetes.default.svc
       namespace: "argocd"

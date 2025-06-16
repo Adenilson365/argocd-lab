@@ -25,6 +25,7 @@ kubectl create clusterrolebinding cluster-admin-binding \
 
 #Setar o cluster de gerenciamento como o cluster padrão
 #kubectl config use-context gke_argo-mgmt_us-west1_argo-mgmt-0
+#kubectl config use-context gke_argo-dev-455710_us-central1_argo-dev-0
 
 # Install ArgoCD
 
