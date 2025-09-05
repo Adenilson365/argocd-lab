@@ -10,14 +10,14 @@
 #   --user $(gcloud config get-value account)
 
 gcloud container clusters get-credentials argo-dev-0 \
-    --region=us-central1 --project=argo-dev-455710
+    --region=us-central1 --project=develop-464014
 
 kubectl create clusterrolebinding cluster-admin-binding \
   --clusterrole cluster-admin \
   --user $(gcloud config get-value account)
 
 gcloud container clusters get-credentials argo-mgmt-0 \
-    --region=us-west1 --project=argo-mgmt
+    --region=us-west1 --project=homol-argo
 
 kubectl create clusterrolebinding cluster-admin-binding \
   --clusterrole cluster-admin \
