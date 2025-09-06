@@ -52,6 +52,17 @@ kubectl apply -f argocd-mgmt/k8s-mgmt/app-of-apps/application.yaml
 kubectl apply -f config/mgmt/
 
 # apply manifests k8s application
+#### Alterar o server para o IP do cluster para os ambientes dev e prod
+#### Realizar o commit das alterações
+./commit.sh
+
+# Aplicando dev
+kubectl apply -f argocd-mgmt/app-project/dev-project.yaml 
+kubectl apply -f argocd-mgmt/app-of-apps/dev/infra.yaml
+kubectl apply -f argocd-mgmt/app-of-apps/dev/shared.yaml 
+kubectl apply -f argocd-mgmt/app-of-apps/dev/application.yaml
+
+
 # .
 # ├── argocd-mgmt
 # │   ├── argocd-values
