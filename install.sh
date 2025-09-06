@@ -39,10 +39,19 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 argocd login localhost:32501 --username admin --password $(cat argo-pass.pass.argo) --insecure --grpc-web
 # argocd login argo.konzelmann.com.br --username admin --password $(cat argo-pass.pass.argo) --insecure --grpc-web
 
-argocd cluster add gke_argo-dev-455710_us-central1_argo-dev-0 -y
+argocd cluster add gke_develop-464014_us-central1_argo-dev-0 -y
 # argocd cluster add gke_argo-prd_us-east1_argo-prd-0 -y
 
 
+
+
+# Apply manifests argocd-mgmt
+kubectl apply -f argocd-mgmt/app-project/mgmt-project.yaml
+kubectl apply -f argocd-mgmt/k8s-mgmt/app-of-apps/infra.yaml 
+kubectl apply -f argocd-mgmt/k8s-mgmt/app-of-apps/application.yaml
+kubectl apply -f config/mgmt/
+
+# apply manifests k8s application
 # .
 # ├── argocd-mgmt
 # │   ├── argocd-values
