@@ -5,9 +5,9 @@
 # gcloud container clusters get-credentials argo-prd-0 \
 #     --region=us-east1 --project=argo-prd
 
-# kubectl create clusterrolebinding cluster-admin-binding \
-#   --clusterrole cluster-admin \
-#   --user $(gcloud config get-value account)
+kubectl create clusterrolebinding cluster-admin-binding \
+  --clusterrole cluster-admin \
+  --user $(gcloud config get-value account)
 
 gcloud container clusters get-credentials argo-dev-0 \
     --region=us-central1 --project=develop-464014
@@ -40,6 +40,7 @@ argocd login localhost:32501 --username admin --password $(cat argo-pass.pass.ar
 # argocd login argo.konzelmann.com.br --username admin --password $(cat argo-pass.pass.argo) --insecure --grpc-web
 
 argocd cluster add gke_develop-464014_us-central1_argo-dev-0 -y
+argocd cluster add gke_argo-prod-471308_us-east1_argo-prd-0 -y
 # argocd cluster add gke_argo-prd_us-east1_argo-prd-0 -y
 
 
@@ -62,6 +63,9 @@ kubectl apply -f argocd-mgmt/app-of-apps/dev/infra.yaml
 kubectl apply -f argocd-mgmt/app-of-apps/dev/shared.yaml 
 kubectl apply -f argocd-mgmt/app-of-apps/dev/application.yaml
 
+#Altere o contexto para aplicar os arquivos de config
+kubectl config use-context gke_develop-464014_us-central1_argo-dev-0
+kubectl apply -f config/dev/
 
 # .
 # ├── argocd-mgmt
