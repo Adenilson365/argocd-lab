@@ -2,8 +2,8 @@
 
 
 
-# gcloud container clusters get-credentials argo-prd-0 \
-#     --region=us-east1 --project=argo-prd
+gcloud container clusters get-credentials argo-prd-0 \
+    --region=us-east1 --project=argo-prod-471308
 
 kubectl create clusterrolebinding cluster-admin-binding \
   --clusterrole cluster-admin \
