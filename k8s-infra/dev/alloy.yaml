@@ -77,3 +77,29 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: tempo
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: dev
+  source:
+    repoURL: "https://grafana.github.io/helm-charts"
+    chart: tempo
+    targetRevision: 4.0.16
+    helm:
+      releaseName: tempo
+
+  destination:
+    server: "https://34.23.65.53"
+    namespace: obs
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
