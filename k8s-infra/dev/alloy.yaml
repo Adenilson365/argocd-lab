@@ -1,0 +1,79 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: alloy
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: dev
+  source:
+    repoURL: "https://grafana.github.io/helm-charts"
+    chart: alloy
+    targetRevision: 1.9.0
+    helm:
+      releaseName: alloy
+
+  destination:
+    server: "https://34.23.65.53"
+    namespace: obs
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+#DOC: https://grafana.com/docs/alloy/latest/set-up/install/kubernetes/
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: grafana
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: dev
+  source:
+    repoURL: "https://grafana.github.io/helm-charts"
+    chart: grafana
+    targetRevision: 9.1.7
+    helm:
+      releaseName: grafana
+
+  destination:
+    server: "https://34.23.65.53"
+    namespace: obs
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: beyla
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: dev
+  source:
+    repoURL: "https://grafana.github.io/helm-charts"
+    chart: beyla
+    targetRevision: 2.6.3
+    helm:
+      releaseName: beyla
+
+  destination:
+    server: "https://34.23.65.53"
+    namespace: obs
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
