@@ -1,5 +1,5 @@
 apiVersion: argoproj.io/v1alpha1
-kind: Application 
+kind: Application
 metadata:
   name: shared-manisfests-prd
   namespace: argocd
@@ -8,13 +8,13 @@ metadata:
 spec:
   project: prod
   source:
-    repoURL: 'https://github.com/Adenilson365/devops-labs01-config.git'
+    repoURL: "https://github.com/Adenilson365/devops-labs01-config.git"
     targetRevision: HEAD
     path: prod
     directory:
       recurse: true
   destination:
-    server: 'https://35.196.226.32'
+    server: "https://34.23.65.53"
   syncPolicy:
     automated:
       prune: true

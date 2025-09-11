@@ -7,7 +7,8 @@ gcloud container clusters get-credentials argo-prd-0 \
 
 kubectl create clusterrolebinding cluster-admin-binding \
   --clusterrole cluster-admin \
-  --user $(gcloud config get-value account)
+  --user $(gcloud config get-value account) \
+  --user serviceAccount:argo-prd@argo-prod-471308.iam.gserviceaccount.com
 
 gcloud container clusters get-credentials argo-dev-0 \
     --region=us-central1 --project=develop-464014

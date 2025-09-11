@@ -1,5 +1,5 @@
 apiVersion: argoproj.io/v1alpha1
-kind: Application 
+kind: Application
 metadata:
   name: api-frontend-prd
   namespace: argocd
@@ -8,13 +8,13 @@ metadata:
 spec:
   project: prod
   source:
-    repoURL: 'https://github.com/Adenilson365/devopslabas01-ops-frontend.git'
+    repoURL: "https://github.com/Adenilson365/devopslabas01-ops-frontend.git"
     targetRevision: main
-    path: application 
+    path: application
     directory:
       recurse: true
   destination:
-    server: 'https://35.196.226.32'
+    server: "https://34.23.65.53"
   syncPolicy:
     automated:
       prune: true
