@@ -14,6 +14,7 @@ spec:
     - https://github.com/Adenilson365/devops-labs01-config.git
     - https://github.com/Adenilson365/argocd-lab.git
     - https://charts.external-secrets.io
+    - https://grafana.github.io/helm-charts
   destinations:
     - server: https://34.23.65.53
       namespace: "*"

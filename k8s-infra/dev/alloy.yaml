@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: "https://grafana.github.io/helm-charts"
     chart: alloy
-    targetRevision: 1.9.0
+    targetRevision: 1.2.0
     helm:
       releaseName: alloy
 
@@ -37,7 +37,7 @@ spec:
   source:
     repoURL: "https://grafana.github.io/helm-charts"
     chart: grafana
-    targetRevision: 9.1.7
+    targetRevision: 9.3.0
     helm:
       releaseName: grafana
 
@@ -64,7 +64,7 @@ spec:
   source:
     repoURL: "https://grafana.github.io/helm-charts"
     chart: beyla
-    targetRevision: 2.6.3
+    targetRevision: 1.9.1
     helm:
       releaseName: beyla
 
