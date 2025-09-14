@@ -13,9 +13,8 @@ spec:
     targetRevision: 1.2.0
     helm:
       releaseName: alloy
-
   destination:
-    server: "https://34.23.65.53"
+    server: "https://34.45.214.188"
     namespace: obs
   syncPolicy:
     automated:
@@ -40,9 +39,8 @@ spec:
     targetRevision: 9.3.0
     helm:
       releaseName: grafana
-
   destination:
-    server: "https://34.23.65.53"
+    server: "https://34.45.214.188"
     namespace: obs
   syncPolicy:
     automated:
@@ -51,32 +49,6 @@ spec:
     syncOptions:
       - CreateNamespace=true
 
----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: beyla
-  namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
-spec:
-  project: dev
-  source:
-    repoURL: "https://grafana.github.io/helm-charts"
-    chart: beyla
-    targetRevision: 1.9.1
-    helm:
-      releaseName: beyla
-
-  destination:
-    server: "https://34.23.65.53"
-    namespace: obs
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -93,9 +65,8 @@ spec:
     targetRevision: 1.22.0
     helm:
       releaseName: tempo
-
   destination:
-    server: "https://34.23.65.53"
+    server: "https://34.45.214.188"
     namespace: obs
   syncPolicy:
     automated:

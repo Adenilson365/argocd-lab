@@ -66,6 +66,7 @@ kubectl apply -f argocd-mgmt/app-of-apps/dev/application.yaml
 
 #Altere o contexto para aplicar os arquivos de config
 kubectl config use-context gke_develop-464014_us-central1_argo-dev-0
+kubectl config use-context gke_argo-prod-471308_us-east1_argo-prd-0
 kubectl apply -f config/dev/
 
 # .
