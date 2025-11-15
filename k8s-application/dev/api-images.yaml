@@ -14,7 +14,7 @@ spec:
     directory:
       recurse: true
   destination:
-    server: "https://34.45.214.188"
+    server: "https://35.226.79.16"
   syncPolicy:
     automated:
       prune: true

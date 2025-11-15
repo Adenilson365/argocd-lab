@@ -66,7 +66,7 @@ spec:
     helm:
       releaseName: tempo
   destination:
-    server: "https://34.45.214.188"
+    server: "https://35.226.79.16"
     namespace: obs
   syncPolicy:
     automated:

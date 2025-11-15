@@ -16,7 +16,7 @@ spec:
     - https://charts.external-secrets.io
     - https://grafana.github.io/helm-charts
   destinations:
-    - server: https://34.45.214.188
+    - server: https://35.226.79.16
       namespace: "*"
     - server: https://kubernetes.default.svc
       namespace: "argocd"
