@@ -1,76 +1,76 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: alloy
-  namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
-spec:
-  project: dev
-  source:
-    repoURL: "https://grafana.github.io/helm-charts"
-    chart: alloy
-    targetRevision: 1.2.0
-    helm:
-      releaseName: alloy
-  destination:
-    server: "https://35.226.79.16"
-    namespace: obs
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
-#DOC: https://grafana.com/docs/alloy/latest/set-up/install/kubernetes/
----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: grafana
-  namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
-spec:
-  project: dev
-  source:
-    repoURL: "https://grafana.github.io/helm-charts"
-    chart: grafana
-    targetRevision: 9.3.0
-    helm:
-      releaseName: grafana
-  destination:
-    server: "https://35.226.79.16"
-    namespace: obs
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: alloy
+#   namespace: argocd
+#   finalizers:
+#     - resources-finalizer.argocd.argoproj.io
+# spec:
+#   project: dev
+#   source:
+#     repoURL: "https://grafana.github.io/helm-charts"
+#     chart: alloy
+#     targetRevision: 1.2.0
+#     helm:
+#       releaseName: alloy
+#   destination:
+#     server: "https://35.226.79.16"
+#     namespace: obs
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true
+#     syncOptions:
+#       - CreateNamespace=true
+# #DOC: https://grafana.com/docs/alloy/latest/set-up/install/kubernetes/
+# ---
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: grafana
+#   namespace: argocd
+#   finalizers:
+#     - resources-finalizer.argocd.argoproj.io
+# spec:
+#   project: dev
+#   source:
+#     repoURL: "https://grafana.github.io/helm-charts"
+#     chart: grafana
+#     targetRevision: 9.3.0
+#     helm:
+#       releaseName: grafana
+#   destination:
+#     server: "https://35.226.79.16"
+#     namespace: obs
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true
+#     syncOptions:
+#       - CreateNamespace=true
 
----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: tempo
-  namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
-spec:
-  project: dev
-  source:
-    repoURL: "https://grafana.github.io/helm-charts"
-    chart: tempo
-    targetRevision: 1.22.0
-    helm:
-      releaseName: tempo
-  destination:
-    server: "https://35.226.79.16"
-    namespace: obs
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
+# ---
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: tempo
+#   namespace: argocd
+#   finalizers:
+#     - resources-finalizer.argocd.argoproj.io
+# spec:
+#   project: dev
+#   source:
+#     repoURL: "https://grafana.github.io/helm-charts"
+#     chart: tempo
+#     targetRevision: 1.22.0
+#     helm:
+#       releaseName: tempo
+#   destination:
+#     server: "https://35.226.79.16"
+#     namespace: obs
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true
+#     syncOptions:
+#       - CreateNamespace=true
