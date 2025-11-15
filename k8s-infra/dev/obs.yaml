@@ -14,7 +14,7 @@ spec:
     helm:
       releaseName: alloy
   destination:
-    server: "https://34.45.214.188"
+    server: "https://35.226.79.16"
     namespace: obs
   syncPolicy:
     automated:
@@ -40,7 +40,7 @@ spec:
     helm:
       releaseName: grafana
   destination:
-    server: "https://34.45.214.188"
+    server: "https://35.226.79.16"
     namespace: obs
   syncPolicy:
     automated:
